@@ -1,8 +1,7 @@
 package com.example.springplayground;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.*;
 
@@ -22,9 +21,16 @@ public class Controller {
     @GetMapping("flights/flight")
     public Flight getOneFlight(){
         Passenger passenger = new Passenger("bob", "smith");
-        Ticket ticket = new Ticket(passenger, 300);
+        Ticket ticket = new Ticket(passenger, 200);
         Flight flight = new Flight(ticket, new Date(2014 - 1900, 5, 8));
 
         return flight;
+    }
+
+    @PostMapping("/flights/tickets/total")
+    public Total.Result getTicketTotal(@RequestBody Total total){
+        Total.Result result = new Total.Result(total.getTotal());
+
+        return result;
     }
 }

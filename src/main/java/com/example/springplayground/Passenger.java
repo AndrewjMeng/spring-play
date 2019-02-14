@@ -15,6 +15,7 @@ public class Passenger {
         return firstName;
     }
 
+    @JsonProperty("firstName")
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -25,6 +26,7 @@ public class Passenger {
         return lastName;
     }
 
+    @JsonProperty("lastName")
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
